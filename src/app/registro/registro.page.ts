@@ -1,7 +1,6 @@
-// registro.page.ts
-
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-registro',
@@ -12,29 +11,41 @@ export class RegistroPage {
   email: string = '';
   username: string = '';
   password: string = '';
-  isLoading: boolean = false; // Agrega esta propiedad
+  isLoading: boolean = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private apiService: ApiService) {}
 
   register() {
     // Mostrar el spinner de carga
     this.isLoading = true;
 
-    // Simula una carga de 2 segundos
-    setTimeout(() => {
-      // Implementa aquí la lógica para registrar al usuario.
-      // Puedes enviar los datos al servidor o guardarlos localmente.
+    // Datos del usuario a registrar
+    const userData = {
+      username: this.username,
+      email: this.email,
+      password: this.password,
+    };
 
-      // Después del registro, redirige al usuario a la página de inicio de sesión.
-      this.router.navigate(['/iniciar-sesion']);
+    // Realizar la solicitud de registro
+    this.apiService.createUser(userData).subscribe(
+      (response) => {
+        // Registro exitoso, redirigir a la página de inicio de sesión
+        this.router.navigate(['/iniciar-sesion']);
 
-      // Oculta el spinner de carga
-      this.isLoading = false;
-    }, 600);
+        // Ocultar el spinner de carga
+        this.isLoading = false;
+      },
+      (error) => {
+        // Manejar errores de registro, como correo electrónico o usuario ya registrados
+        console.error('Error de registro', error);
+
+        // Ocultar el spinner de carga
+        this.isLoading = false;
+      }
+    );
   }
 
   goToHome() {
-    // Utiliza Angular Routing para redirigir al usuario a la página de inicio.
     this.router.navigate(['/home']);
   }
 }
