@@ -1,15 +1,26 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-recuperar-contrasenia',
   templateUrl: './recuperar-contrasenia.page.html',
   styleUrls: ['./recuperar-contrasenia.page.scss'],
 })
-export class RecuperarContraseniaPage implements OnInit {
+export class RecuperarContraseniaPage{
+  public alertButtons = ['OK'];
+  email: string = '';
+  
+  constructor(private router: Router) {}
 
-  constructor() { }
+  back() {
 
-  ngOnInit() {
+    // Simula una carga de 2 segundos
+    setTimeout(() => {
+      // Implementa aquí la lógica de inicio de sesión
+      // Luego, cuando haya terminado la carga, redirige a la página de bienvenida
+      this.router.navigate(['/iniciar-sesion'] );
+
+    }, 1400);
   }
 
 }

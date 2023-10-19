@@ -13,6 +13,10 @@ export class IniciarSesionPage {
 
   constructor(private router: Router) {}
 
+  navigateToRecuperar() {
+    this.router.navigate(['/recuperar-contrasenia']);
+  }
+
   login() {
     // Mostrar el spinner de carga
     this.isLoading = true;

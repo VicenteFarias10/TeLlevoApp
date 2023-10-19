@@ -18,6 +18,8 @@
     <ion-item>
       <ion-toggle [enableOnOffLabels]="true">Recordar</ion-toggle>
     </ion-item>
+ 
+    
   </ion-list>
   
   <!-- Botón de inicio de sesión con spinner -->
@@ -25,5 +27,7 @@
     {{ isLoading ? 'Iniciando Sesion...' : 'Iniciar Sesión' }}
     <ion-spinner name="circular" *ngIf="isLoading"></ion-spinner>
   </ion-button>
-
+  <ion-item>
+    <ion-button (click)="navigateToRecuperar()" expand="block" color="danger">recuperar contraseña</ion-button>
+  </ion-item>
 </ion-content>
