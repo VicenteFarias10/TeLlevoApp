@@ -10,19 +10,22 @@
       <ion-title size="large">Recuperar Cuenta</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-list>
-<ion-item>
-      <ion-label position="floating">Correo Electrónico</ion-label>
-      <ion-input [(ngModel)]="email" type="text" placeholder="Ej: usuario123@gmail.com"></ion-input>
-    </ion-item>
-  </ion-list>
-  <ion-button (click)="back()" id="present-alert">Aceptar</ion-button>
-<ion-alert
-  trigger="present-alert"
-  header="Aviso"
-  subHeader="Te enviaremos un correo con la confirmación para recuperar la contraseña"
-  message="Un saludo!"
-  [buttons]="alertButtons"
-></ion-alert>
-
+  <div class="login-form">
+    <div class="center-content">
+      <ion-list>
+        <ion-item class="rounded-input">
+          <ion-icon name="mail" slot="start" class="customicon"></ion-icon> <!-- Icono de correo electrónico -->
+          <ion-input [(ngModel)]="email" type="email" placeholder="Correo Electrónico"></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-button shape="round" (click)="back()" id="present-alert" color="tertiary">Recuperar Contraseña</ion-button>
+    </div>
+  </div>
+  <ion-alert
+    trigger="present-alert"
+    header="Aviso"
+    subHeader="Te enviaremos un correo con la confirmación para recuperar la contraseña"
+    message="Un saludo!"
+    [buttons]="alertButtons"
+  ></ion-alert>
 </ion-content>

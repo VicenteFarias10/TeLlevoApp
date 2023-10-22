@@ -1,8 +1,7 @@
 // welcome.page.ts
-
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-welcome',
   templateUrl: 'welcome.page.html',
@@ -14,11 +13,8 @@ export class WelcomePage implements OnInit {
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
-    // Recupera el nombre de usuario desde el estado de navegación
-    const navigation = this.router.getCurrentNavigation();
-    const state = navigation?.extras?.state as { username: string };
-    if (state) {
-      this.username = state.username;
-    }
+    // Recupera el nombre de usuario de localStorage.
+    this.username = localStorage.getItem('username') as string;
   }
+  
 }

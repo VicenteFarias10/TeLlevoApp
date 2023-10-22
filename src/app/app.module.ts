@@ -11,9 +11,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
+
+
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
+   
     RouterModule,
     BrowserModule,
     IonicModule.forRoot(),
@@ -23,6 +27,7 @@ import { AppRoutingModule } from './app-routing.module';
     FormsModule,
     MatSlideToggleModule,
     MatSidenavModule,
+    
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

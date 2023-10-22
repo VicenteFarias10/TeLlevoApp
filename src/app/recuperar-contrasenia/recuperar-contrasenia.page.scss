@@ -1,0 +1,39 @@
+/* Estilo del icono y los inputs */
+.customicon {
+    color: #1258a3; /* Color del icono (azul) */
+  }
+  
+  .rounded-input {
+    border-radius: 25px; /* Bordes redondeados para los inputs */
+    margin-bottom: 20px; /* Espacio entre los elementos */
+  }
+  
+  /* Estilo del botón */
+  .custom-button {
+    background-color: #1258a3; /* Fondo azul */
+    color: #fff; /* Texto blanco */
+    border: none; /* Sin borde */
+    margin-top: 20px; /* Espacio en la parte superior del botón */
+  }
+  
+  .custom-button:hover {
+    background-color: #0e4568; /* Cambio de color al pasar el mouse */
+  }
+  
+  /* Centrar contenido */
+  .center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh; /* Ajustar la altura según sea necesario */
+  }
+  .custom-ttl {
+    color: #1258a3; /* Color de texto personalizado */
+    font-size: 24px; /* Tamaño de fuente personalizado */
+    font-weight: bold; /* Peso de fuente personalizado */
+  }
+  
+  .custom-paraph {
+    color: #1258a3; /* Color de texto personalizado */
+  }

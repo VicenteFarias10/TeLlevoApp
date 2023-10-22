@@ -26,5 +26,9 @@
 @import "@ionic/angular/css/flex-utils.css";
 
 
-
+/* global.scss */
+ion-app {
+    --ion-background-color: #9acafc; /* Color de fondo de la aplicación */
+  }
+  
 

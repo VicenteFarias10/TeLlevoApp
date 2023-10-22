@@ -1,40 +1,41 @@
-// api.service.ts
-
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ApiService {
-  private apiUrl = 'http://localhost:3000'; // Reemplaza esto con la URL de tu servidor API
+export class AuthService {
+  private apiUrl = 'http://localhost:3000'; // Reemplaza con la URL de tu servidor API
+  private secretKey = 'secreto'; 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  // Obtener usuarios
-  getUsers(): Observable<any[]> {
-    // Define el encabezado como un objeto HttpHeaders
+  // Función para agregar el token a las solicitudes
+  private addTokenToHeaders(headers: HttpHeaders): HttpHeaders {
+    const token = localStorage.getItem('secreto');
+    if (token) {
+      return headers.set('Authorization', `Bearer ${token}`);
+    }
+    return headers;
+  }
+
+  login(username: string, password: string) {
+    const credentials = { username, password };
+    return this.http.post(`${this.apiUrl}/login`, credentials)
+      .pipe(
+        map((response: any) => {
+          // Almacena el token en localStorage
+          localStorage.setItem('secreto', response.token);
+        })
+      );
+  }
+
+  getUserData() {
     const headers = new HttpHeaders({
-      'Authorization': 'Bearer ' + localStorage.getItem('token') // Reemplaza con tu lógica de token
+      'Authorization': `Bearer ${localStorage.getItem('secreto')}`
     });
 
-    // Usar el encabezado en la solicitud HTTP
-    return this.http.get<any[]>(`${this.apiUrl}/users`, { headers });
-  }
-
-  // Crear usuario
-  createUser(user: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/users`, user);
-  }
-
-  // Actualizar usuario
-  updateUser(userId: string, updatedUser: any): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/users/${userId}`, updatedUser);
-  }
-
-  // Eliminar usuario
-  deleteUser(userId: string): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/users/${userId}`);
+    return this.http.get(`${this.apiUrl}/user-data`, { headers });
   }
 }

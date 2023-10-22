@@ -1,13 +1,17 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>welcome {{ username }}</ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">welcome</ion-title>
+      <ion-title size="large">Bienvenido {{ username }}</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <!-- Contenedor de la imagen y el mensaje de bienvenida -->
+  <div class="welcome-container">
+    <!-- Imagen de usuario prototipo -->
+    <img src="assets/user.png" alt="Usuario Prototipo" class="user-image" />
+
+    <!-- Mensaje de bienvenida -->
+    <p class="welcome-message">¡Bienvenido {{ username }}!</p>
+  </div>
 </ion-content>

@@ -1,0 +1,62 @@
+
+.rounded-input {
+    --border-radius: 20px; /* Ajusta este valor según tu preferencia */
+    --border-width: 1px; /* Grosor del borde */
+    --border-color: #1258a3; /* Color del borde */
+    --border-style: solid;
+    --background: #cedceb; /* Color de fondo */
+    --padding-start: 10px; /* Espacio en el lado izquierdo del input */
+    --padding-end: 10px; /* Espacio en el lado derecho del input */
+  }
+  .custom-button {
+    margin-top: 20px; /* Ajusta la cantidad de espacio que desees entre los botones y los otros elementos */
+  }
+  /* En tu hoja de estilo de la página de inicio de sesión (iniciar-sesion.page.scss) */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    background-color: #9acafc; /* Color de fondo de la página */
+  }
+  
+  /* Estilos para los ion-input */
+  ion-item {
+    --ion-background-color: #cedceb; /* Color de fondo de los ion-input */
+    border-radius: 20px; /* Hace que los input tengan una forma más redondeada */
+    margin: 10px 0; /* Margen entre los elementos */
+  }
+  
+  ion-input {
+    --ion-color: #1258a3; /* Color del texto en los ion-input */
+  }
+  
+  /* Alinea los botones al centro y ajusta el margen */
+  ion-button {
+    margin-top: 10px;
+    --background: #1258a3; /* Color de fondo de los botones */
+    color: #cedceb; /* Color del texto en los botones */
+    border-radius: 20px; /* Hace que los botones tengan una forma más redondeada */
+  }
+  .customicon {
+    color: #1258a3; /* Cambia el color de los iconos a #1258a3 */
+  }
+  .custom-button {
+    --ion-color-tertiary: #1258a3; /* Cambia el color del botón a #1258a3 */
+  }
+  .custom-bg {
+    background-color: #fffacd; /* Color de fondo personalizado */
+  }
+  
+  .custom-title {
+    color: #1258a3; /* Color de texto personalizado */
+    font-size: 24px; /* Tamaño de fuente personalizado */
+    font-weight: bold; /* Peso de fuente personalizado */
+  }
+  
+  .custom-paragraph {
+    color: #1258a3; /* Color de texto personalizado */
+  }
+
+  

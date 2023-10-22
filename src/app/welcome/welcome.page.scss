@@ -1,0 +1,16 @@
+/* Estilo de la imagen de usuario */
+.user-image {
+    display: block;
+    margin: 0 auto;
+    width: 150px; /* Tamaño de la imagen */
+    height: 150px; /* Tamaño de la imagen */
+    border-radius: 50%; /* Forma redonda para la imagen de perfil */
+  }
+  
+  /* Estilo del mensaje de bienvenida */
+  .welcome-message {
+    text-align: center;
+    font-size: 24px; /* Tamaño de fuente del mensaje de bienvenida */
+    margin-top: 20px; /* Espacio entre la imagen y el mensaje de bienvenida */
+  }
+  
