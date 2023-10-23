@@ -18,51 +18,50 @@
     align-items: center;
     justify-content: center;
     height: 50vh;
-    background-color: #9acafc; /* Color de fondo de la página */
+    background-color: #9acafc; 
   }
   
   /* Estilos para los ion-input */
   ion-item {
-    --ion-background-color: #cedceb; /* Color de fondo de los ion-input */
-    border-radius: 20px; /* Hace que los input tengan una forma más redondeada */
-    margin: 10px 0; /* Margen entre los elementos */
+    --ion-background-color: #cedceb;
+    border-radius: 20px; 
+    margin: 10px 0;
   }
   
   ion-input {
-    --ion-color: #1258a3; /* Color del texto en los ion-input */
+    --ion-color: #1258a3; 
   }
   
-  /* Alinea los botones al centro y ajusta el margen */
+ 
   ion-button {
     margin-top: 10px;
-    --background: #1258a3; /* Color de fondo de los botones */
-    color: #cedceb; /* Color del texto en los botones */
-    border-radius: 20px; /* Hace que los botones tengan una forma más redondeada */
+    --background: #1258a3; 
+    color: #cedceb; 
+    border-radius: 20px; 
   }
   .customicon {
-    color: #1258a3; /* Cambia el color de los iconos a #1258a3 */
+    color: #1258a3; 
   }
   .custom-button {
-    --ion-color-tertiary: #1258a3; /* Cambia el color del botón a #1258a3 */
+    --ion-color-tertiary: #1258a3; 
   }
   .custom-bg {
-    background-color: #fffacd; /* Color de fondo personalizado */
+    background-color: #fffacd; 
   }
-  
   .custom-title {
-    color: #1258a3; /* Color de texto personalizado */
-    font-size: 24px; /* Tamaño de fuente personalizado */
-    font-weight: bold; /* Peso de fuente personalizado */
+    color: #1258a3; 
+    font-size: 24px; 
+    font-weight: bold; 
   }
   
   .custom-paragraph {
-    color: #1258a3; /* Color de texto personalizado */
+    color: #1258a3; 
   }
   ion-list{
     --ion-color: #cedceb;
     background-color: #9acafc;
   }
+
 .recordar{
   background-color:#cedceb;
 }
-  
