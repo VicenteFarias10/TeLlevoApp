@@ -14,10 +14,11 @@
         <ion-icon class="customicon" name="lock-closed" slot="start"></ion-icon> <!-- Icono de candado para contraseña -->
         <ion-input [(ngModel)]="password" type="password" placeholder="Contraseña"></ion-input>
       </ion-item>
-      <ion-item>
+      <ion-item class="rounded-input">
         <ion-toggle [enableOnOffLabels]="true">Recordar</ion-toggle>
       </ion-item>
     </ion-list>
+    
   
     <!-- Botón de inicio de sesión con spinner -->
     <ion-button shape="round" (click)="login()" [disabled]="isLoading" class="ion-margin-top custom-button">

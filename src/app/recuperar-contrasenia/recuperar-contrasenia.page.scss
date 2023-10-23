@@ -1,11 +1,18 @@
 /* Estilo del icono y los inputs */
+
+
 .customicon {
     color: #1258a3; /* Color del icono (azul) */
   }
   
   .rounded-input {
-    border-radius: 25px; /* Bordes redondeados para los inputs */
-    margin-bottom: 20px; /* Espacio entre los elementos */
+    --border-radius: 20px; /* Ajusta este valor según tu preferencia */
+  --border-width: 1px; /* Grosor del borde */
+  --border-color: #1258a3; /* Color del borde */
+  --border-style: solid;
+  --background: #cedceb; /* Color de fondo */
+  --padding-start: 10px; /* Espacio en el lado izquierdo del input */
+  --padding-end: 10px;
   }
   
   /* Estilo del botón */
@@ -36,4 +43,8 @@
   
   .custom-paraph {
     color: #1258a3; /* Color de texto personalizado */
+  }
+  ion-list{
+    --ion-color: #cedceb;
+    background-color: #9acafc;
   }
