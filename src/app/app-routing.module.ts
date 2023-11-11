@@ -24,7 +24,11 @@ const routes: Routes = [
   {
     path: 'recuperar-contrasenia',
     loadChildren: () => import('./recuperar-contrasenia/recuperar-contrasenia.module').then( m => m.RecuperarContraseniaPageModule)
+  },  {
+    path: 'welcome-cond',
+    loadChildren: () => import('./welcome-cond/welcome-cond.module').then( m => m.WelcomeCondPageModule)
   },
+
 
 ];
 

@@ -1,13 +1,13 @@
-// welcome.page.ts
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+
 @Component({
-  selector: 'app-welcome',
-  templateUrl: 'welcome.page.html',
-  styleUrls: ['welcome.page.scss'],
+  selector: 'app-welcome-cond',
+  templateUrl: './welcome-cond.page.html',
+  styleUrls: ['./welcome-cond.page.scss'],
 })
-export class WelcomePage implements OnInit {
+export class WelcomeCondPage implements OnInit {
   username: string = '';
   role: string ='';
 
