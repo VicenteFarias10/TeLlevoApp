@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { IniciarSesionPage } from './iniciar-sesion.page';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { AuthService } from '../services/api.service';
 
 describe('IniciarSesionPage', () => {
   let component: IniciarSesionPage;
@@ -8,6 +10,8 @@ describe('IniciarSesionPage', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [IniciarSesionPage],
+      imports: [HttpClientTestingModule],
+      providers: [AuthService],
     })
     .compileComponents();
   });
