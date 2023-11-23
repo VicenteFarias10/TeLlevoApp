@@ -1,4 +1,4 @@
-
+<!-- welcome-cond.page.html -->
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
@@ -13,6 +13,31 @@
 
     <!-- Mensaje de bienvenida -->
     <p class="welcome-message">¡Bienvenido {{ username }}!</p>
-    <p>Rol: {{ role }}</p>
+    <p>Usuario: {{ role }}</p>
+
+    <!-- Formulario para crear un nuevo viaje -->
+    <form (ngSubmit)="CrearViaje()">
+      <ion-item>
+        <ion-label position="floating">Origen</ion-label>
+        <ion-input [(ngModel)]="viajeData.origen" name="origen" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Destino</ion-label>
+        <ion-input [(ngModel)]="viajeData.destino" name="destino" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Precio</ion-label>
+        <ion-input [(ngModel)]="viajeData.precio" name="precio" type="number" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Asientos Disponibles</ion-label>
+        <ion-input [(ngModel)]="viajeData.asientosDisponibles" name="asientosDisponibles" type="number" required></ion-input>
+      </ion-item>
+
+      <ion-button type="submit" expand="full">Crear Viaje</ion-button>
+    </form>
   </div>
 </ion-content>

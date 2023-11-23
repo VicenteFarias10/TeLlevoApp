@@ -1,7 +1,9 @@
-// welcome.page.ts
+// Importa solo lo necesario, elimina cualquier importación innecesaria
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../services/api.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-welcome',
   templateUrl: 'welcome.page.html',
@@ -9,16 +11,60 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class WelcomePage implements OnInit {
   username: string = '';
-  role: string ='';
+  role: string = '';
+  viajesDisponibles: any[] = [];
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
+  constructor( private router: Router,private authService: AuthService, private toastr: ToastrService) {}
 
   ngOnInit() {
-    // Recupera el nombre de usuario de localStorage.
     this.username = localStorage.getItem('username') as string;
     this.role = localStorage.getItem('role') as string;
-    
+    this.obtenerViajesDisponibles();
   }
+
+  obtenerViajesDisponibles() {
+    this.authService.obtenerViajesDisponibles().subscribe(
+      (response: any) => {
+        this.viajesDisponibles = response.viajes;
+      },
+      (error) => {
+        console.error('Error al obtener los viajes disponibles:', error);
+      }
+    );
+  }
+
+  solicitarViaje(viajeId: string) {
+    if (!viajeId) {
+      console.error('Error: No se proporcionó un ID de viaje válido.');
+      this.toastr.error('Error al solicitar el viaje');
+      return;
+    }
   
+    const solicitudViajeData = { viajeId, username: this.username };
   
-}
+    // Asegúrate de pasar ambos argumentos a solicitarViaje
+    this.authService.solicitarViaje(viajeId, this.username).subscribe(
+      (response: any) => {
+        console.log('Respuesta del servidor:', response);
+  
+        if (response.viaje && response.viaje._id) {
+          const nuevoViaje = response.viaje;
+          this.toastr.success('Solicitud de viaje exitosa');
+  
+          // Navega a la nueva página de detalles-viaje-p con el ID del nuevo viaje
+          this.router.navigate(['/detalles-viaje', nuevoViaje._id]);
+  
+        } else {
+          console.error('Error: No se recibió un ID de viaje válido en la respuesta del servidor.');
+          this.toastr.error('Error al solicitar el viaje');
+        }
+      },
+      (error) => {
+        console.error('Error en la solicitud:', error);
+        this.toastr.error('Error al solicitar el viaje');
+      }
+    );
+  }
+};
+  
+

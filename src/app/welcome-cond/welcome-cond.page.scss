@@ -1,0 +1,22 @@
+/* welcome-cond.page.scss */
+
+ion-content {
+    background-color: #f0f0f0; /* Color de fondo */
+  }
+  
+  .welcome-container {
+    text-align: center;
+    padding: 20px;
+  
+    .user-image {
+      max-width: 100px;
+      border-radius: 50%; /* Bordes redondeados para la imagen */
+    }
+  
+    .welcome-message {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  }
+  

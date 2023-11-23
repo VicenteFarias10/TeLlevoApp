@@ -2,9 +2,9 @@
 .rounded-input {
     --border-radius: 20px; /* Ajusta este valor según tu preferencia */
     --border-width: 1px; /* Grosor del borde */
-    --border-color: #1258a3; /* Color del borde */
+    --border-color: #fff; /* Color del borde */
     --border-style: solid;
-    --background: #cedceb; /* Color de fondo */
+    --background:  /* Color de fondo */
     --padding-start: 10px; /* Espacio en el lado izquierdo del input */
     --padding-end: 10px; /* Espacio en el lado derecho del input */
   }
@@ -18,50 +18,54 @@
     align-items: center;
     justify-content: center;
     height: 50vh;
-    background-color: #9acafc; 
-  }
+    
+  } 
+  
   
   /* Estilos para los ion-input */
   ion-item {
-    --ion-background-color: #cedceb;
+    --ion-background-color: white;
     border-radius: 20px; 
     margin: 10px 0;
   }
   
   ion-input {
-    --ion-color: #1258a3; 
+    font-family: 'Poppins', sans-serif;
+    --ion-color: #fff; 
+    
   }
   
  
   ion-button {
     margin-top: 10px;
-    --background: #1258a3; 
+   
     color: #cedceb; 
     border-radius: 20px; 
   }
   .customicon {
-    color: #1258a3; 
+    color: #fff; 
   }
   .custom-button {
-    --ion-color-tertiary: #1258a3; 
+    --ion-color-tertiary: #fff; 
   }
-  .custom-bg {
-    background-color: #fffacd; 
-  }
+  
   .custom-title {
-    color: #1258a3; 
-    font-size: 24px; 
+    font-family: 'Poppins', sans-serif;
+    color: #fff; 
+    font-size: 28px; 
     font-weight: bold; 
   }
   
   .custom-paragraph {
-    color: #1258a3; 
+    font-family: 'Poppins', sans-serif;
+    color: #fff; 
   }
-  ion-list{
-    --ion-color: #cedceb;
-    background-color: #9acafc;
-  }
+  
 
 .recordar{
   background-color:#cedceb;
+}
+
+ion-content.custom-bg {
+  font-family: 'Poppins', sans-serif;
 }

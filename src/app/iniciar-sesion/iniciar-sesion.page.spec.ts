@@ -5,7 +5,14 @@ describe('IniciarSesionPage', () => {
   let component: IniciarSesionPage;
   let fixture: ComponentFixture<IniciarSesionPage>;
 
-  beforeEach(async() => {
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [IniciarSesionPage],
+    })
+    .compileComponents();
+  });
+
+  beforeEach(() => {
     fixture = TestBed.createComponent(IniciarSesionPage);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -1,16 +1,53 @@
-/* Estilo de la imagen de usuario */
-.user-image {
-    display: block;
-    margin: 0 auto;
-    width: 150px; /* Tamaño de la imagen */
-    height: 150px; /* Tamaño de la imagen */
-    border-radius: 50%; /* Forma redonda para la imagen de perfil */
+/* welcome-cond.page.scss */
+
+
+.welcome-container {
+  text-align: center;
+  padding: 20px;
+
+  .user-image {
+    max-width: 100px;
+    border-radius: 50%; /* Bordes redondeados para la imagen */
   }
-  
-  /* Estilo del mensaje de bienvenida */
+
   .welcome-message {
-    text-align: center;
-    font-size: 24px; /* Tamaño de fuente del mensaje de bienvenida */
-    margin-top: 20px; /* Espacio entre la imagen y el mensaje de bienvenida */
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
   }
-  
+}
+
+ion-content {
+  .viaje-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .viaje-item {
+    /* Color de fondo de cada elemento de viaje */
+    margin: 10px; /* Espaciado entre elementos */
+    padding: 15px; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    color: #fff; /* Color del texto */
+    width: 80%; /* Ajusta el ancho según tus necesidades */
+  }
+
+  .viaje-label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+  }
+}
+
+  .viaje-info,
+  .viaje-values {
+    flex: 1;
+  }
+  .solicitar-button {
+    width: 120px;
+    margin-top: 10px;
+  }
+
+
