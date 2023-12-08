@@ -1,24 +1,54 @@
 /* detalles-viaje.page.scss */
+ion-title {
+  color: #ecf0f1; /* Blanco */
+}
 
-  .detalles-container {
-    text-align: center;
-    padding: 20px;
-    margin: 20px;
+ion-list, ion-item, ion-item-group {
+  --background: rgba(7, 37, 94, 0.5); /* Azul con opacidad */
+}
 
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para resaltar el contenedor */
-  }
-  
-  p {
-    font-size: 16px;
-    margin: 5px 0; /* Ajusta el margen según tus preferencias */
-  }
-  
-  ion-list {
-    margin-top: 20px;
-  }
-  
+ion-toolbar {
+  --background: transparent; /* Hace que el fondo del toolbar sea transparente */
+}
 
-  
-  /* Ajusta los estilos según sea necesario */
-  
+
+.detalles-container {
+  padding: 25px;
+  margin: 25px;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgb(125, 162, 243); 
+ 
+}
+
+p {
+  font-size: 16px;
+  margin: 5px 0;
+  color: #ecf0f1; /* Blanco */
+}
+
+ion-list {
+  margin-top: 20px;
+}
+
+/* Estilo para el caso de no haber pasajeros */
+.no-pasajeros {
+ 
+  color: #bdc3c7; /* Gris claro */
+}
+
+/* Nuevas reglas para elementos internos de ion-item */
+ion-item-inner, .input-wrapper, .item-inner {
+  --background: transparent !important;
+}
+
+/* Estilo específico para el contenido del pasajero */
+ion-item p {
+  color: #ecf0f1; /* Blanco */
+}
+
+
+
+/* Estilo específico para el botón de Comenzar Viaje */
+
+
+

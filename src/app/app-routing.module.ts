@@ -33,6 +33,16 @@ const routes: Routes = [
     path: 'detalles-viaje/:id',  // Agregando ':id' como parámetro
     loadChildren: () => import('./detalles-viaje/detalles-viaje.module').then(m => m.DetallesViajePageModule)
   },
+  {
+    path: 'detalles-viaje-pasajero/:id',
+    loadChildren: () => import('./detalles-viaje-pasajero/detalles-viaje-pasajero.module').then( m => m.DetallesViajePasajeroPageModule)
+  },
+  {
+    path: 'viajes',
+    loadChildren: () => import('./viajes/viajes.module').then( m => m.ViajesPageModule)
+  },
+
+
   
  
 

@@ -1,22 +1,24 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../services/api.service';
+import { ToastController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-detalles-viaje',
-  templateUrl: './detalles-viaje.page.html',
-  styleUrls: ['./detalles-viaje.page.scss'],
+  selector: 'app-detalles-viaje-pasajero',
+  templateUrl: './detalles-viaje-pasajero.page.html',
+  styleUrls: ['./detalles-viaje-pasajero.page.scss'],
 })
-export class DetallesViajePage implements OnInit, OnDestroy {
+export class DetallesViajePasajeroPage implements OnInit, OnDestroy {
   viaje: any;
   viajeIniciado: boolean = false;
   viajeIniciadoSubscription: Subscription = new Subscription();
 
   constructor(
-    private router: Router,
     private route: ActivatedRoute,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router,
+    private toastController: ToastController
   ) {}
 
   ngOnInit() {
@@ -24,7 +26,7 @@ export class DetallesViajePage implements OnInit, OnDestroy {
       const viajeId = params['id'];
       this.obtenerDetallesViaje(viajeId);
       this.viajeIniciadoSubscription = this.authService
-        .obtenerViajeIniciado()
+        .viajeIniciado$
         .subscribe((iniciado: boolean) => {
           this.viajeIniciado = iniciado;
         });
@@ -49,37 +51,25 @@ export class DetallesViajePage implements OnInit, OnDestroy {
     );
   }
 
-  comenzarViaje() {
-    if (!this.viajeIniciado) {
-      this.authService.comenzarViaje(this.viaje._id).subscribe(
-        (response: any) => {
-          if (response && response.mensaje) {
-            console.log(response.mensaje);
-          } else {
-            console.error(
-              'La respuesta no contiene la propiedad "mensaje":',
-              response
-            );
-          }
-        },
-        (error) => {
-          console.error('Error al comenzar el viaje:', error);
-        }
-      );
-    } else {
-      console.log('El viaje ya ha sido iniciado.');
-    }
-  }
-
   finalizarViaje() {
-    this.router.navigate(['/welcome-cond']);
-    this.authService.finalizarViaje(this.viaje._id).subscribe(
-      (response: any) => {
-        console.log(response.mensaje);
+    this.authService.finalizarViaje(this.viaje.id).subscribe(
+      () => {
+        this.router.navigate(['/welcome']);
+        this.presentToast('Su viaje ha finalizado.');
       },
       (error) => {
         console.error('Error al finalizar el viaje:', error);
       }
     );
+  }
+
+  async presentToast(message: string) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 3000,
+      position: 'bottom',
+      color: 'success',
+    });
+    toast.present();
   }
 }

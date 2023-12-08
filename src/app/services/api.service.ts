@@ -1,15 +1,19 @@
+// api.service.ts
+
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
+import { Subject } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  
-  public apiUrl = 'http://localhost:3000'; // Reemplaza con la URL de tu servidor API
-  private secretKey = 'secreto';
+  public apiUrl = 'https://xr40pckj-3000.brs.devtunnels.ms'; 
+  private viajeIniciadoSubject = new Subject<boolean>();
+  viajeIniciado$ = this.viajeIniciadoSubject.asObservable();
 
   constructor(private http: HttpClient) {}
 
@@ -48,7 +52,8 @@ export class AuthService {
       })
     );
   }
-
+  
+  
 
   getUserData() {
     const headers = new HttpHeaders({
@@ -86,7 +91,7 @@ export class AuthService {
   obtenerUsuarios(): Observable<any> {
     return this.http.get(`${this.apiUrl}/users`);
   }
-  
+
   obtenerDetallesViaje(viajeId: string): Observable<any> {
     const headers = this.addTokenToHeaders();
   
@@ -97,5 +102,41 @@ export class AuthService {
       })
     );
   }
-};
+
+  obtenerViajeIniciado(): Observable<boolean> {
+    return this.viajeIniciadoSubject.asObservable();
+  }
+
+  comenzarViaje(viajeId: string): Observable<any> {
+    const headers = this.addTokenToHeaders();
   
+    return this.http.post(`${this.apiUrl}/viajes/${viajeId}/iniciar`, {}, { headers })
+      .pipe(
+        catchError((error: any) => {
+          console.error(error);
+          return throwError('Error al comenzar el viaje');
+        }),
+        tap(() => {
+          console.log('Viaje iniciado con éxito.');
+          this.viajeIniciadoSubject.next(true);
+        })
+      );
+  }
+
+
+  finalizarViaje(viajeId: string): Observable<any> {
+    const headers = this.addTokenToHeaders();
+  
+    return this.http.post(`${this.apiUrl}/viajes/${viajeId}/finalizar`, {}, { headers })
+      .pipe(
+        catchError((error: any) => {
+          console.error(error);
+          return throwError('Error al finalizar el viaje');
+        }),
+        tap(() => {
+          console.log('Viaje finalizado con éxito.');
+          this.viajeIniciadoSubject.next(false);
+        })
+      );
+  }
+}

@@ -1,5 +1,8 @@
-/* welcome-cond.page.scss */
+/* welcome.page.scss */
 
+ion-content {
+  background-color: #f0f0f0; /* Color de fondo general de la página */
+}
 
 .welcome-container {
   text-align: center;
@@ -15,39 +18,57 @@
     font-weight: bold;
     margin-top: 10px;
   }
-}
 
-ion-content {
-  .viaje-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .viaje-item {
-    /* Color de fondo de cada elemento de viaje */
-    margin: 10px; /* Espaciado entre elementos */
-    padding: 15px; /* Espaciado interno */
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-    color: #fff; /* Color del texto */
-    width: 80%; /* Ajusta el ancho según tus necesidades */
-  }
-
-  .viaje-label {
-    font-size: 14px;
-    margin-bottom: 5px;
-    display: block;
+  .viaje-list {
+    background-color: transparent;
+     /* Sombra ligera */ /* Fondo transparente para la lista de viajes */
   }
 }
+ion-list {
+  background-color: transparent; /* Fondo blanco semi-transparente */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 10px;
+  margin-top: 10px; /* Espacio superior entre el contenedor y otros elementos */
+  text-align: center;
+  box-shadow: 0 8px 16px rgb(125, 162, 243); 
 
-  .viaje-info,
-  .viaje-values {
-    flex: 1;
-  }
-  .solicitar-button {
-    width: 120px;
-    margin-top: 10px;
-  }
+}
+p {
+  font-size: 16px;
+  margin: 5px 0;
+  color: #fff; /* Color de texto principal */
+}
+ion-item {
+  --background: transparent !important;
+}
 
 
+.viaje-item {
+  text-align: justify;
+  margin: 10px;
+  padding: 15px;
+  border-radius: 25x;
+  box-shadow: 0 2px 4px rgb(125, 162, 243); 
+  color: #fff;
+  width: 96%;
+  background-color: transparent !important;
+}
+
+.viaje-label {
+  text-align:justify;
+  margin-right: 10px;
+  font-size: 14px;
+  margin-bottom: 5px;
+  display: block;
+}
+
+
+
+ion-button {
+  position: absolute;
+  top: 10px; /* Ajusta la distancia desde la parte superior según tus necesidades */
+  right: 10px; /* Ajusta la distancia desde la derecha según tus necesidades */
+  width: 45px;
+  background-color: transparent; /* Color de fondo del botón Solicitar Viaje */
+  color: #000; 
+}

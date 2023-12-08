@@ -27,10 +27,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 /* global.scss */
+
+
 /* global.scss */
 
-ion-content{
-  --background: #fff url('./assets/fondo.jpg') no-repeat center center / cover;
+@font-face {
+  font-family: 'NuevaFuente';
+  src: url('./assets/fonts/UberMove-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+ion-content {
+  --background: url('./assets/blue.jpeg') no-repeat center center / cover;
+}
+
+* {
+  font-family: 'UberMove', sans-serif 
 }
 
 

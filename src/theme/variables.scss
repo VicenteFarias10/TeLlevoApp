@@ -3,6 +3,7 @@
 
 /** Ionic CSS Variables **/
 :root {
+  
   /** primary **/
   --ion-color-primary: #3880ff;
   --ion-color-primary-rgb: 56, 128, 255;
@@ -11,6 +12,12 @@
   --ion-color-primary-shade: #3171e0;
   --ion-color-primary-tint: #4c8dff;
 
+  @font-face {
+    font-family: 'NuevaFuente';
+    src: url('../assets/fonts/UberMove-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
   /** secondary **/
   --ion-color-secondary: #3dc2ff;
   --ion-color-secondary-rgb: 61, 194, 255;
@@ -233,4 +240,5 @@
 
     --ion-card-background: #1e1e1e;
   }
+  
 }

@@ -1,0 +1,26 @@
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title>Mis Viajes</ion-title>
+    </ion-toolbar>
+  </ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let viaje of viajes" (click)="verDetallesViaje(viaje)" class="viaje-item">
+      <div class="viaje-values">
+        <ion-label class="viaje-label">Destino:</ion-label>
+        <ion-label class="viaje-label">Hora:</ion-label>
+        <ion-label class="viaje-label">Dia:</ion-label>
+      </div>
+      <div class="viaje-values">
+        <ion-label class="viaje-label">{{ viaje.destino }}</ion-label>
+        <ion-label class="viaje-label">{{ viaje.horaInicio }}</ion-label>
+        <ion-label class="viaje-label">{{ viaje.diaInicio }}</ion-label>
+        
+      </div>
+    </ion-item>
+  </ion-list>
+
+  <!-- Agrega el botón para ir a la página de creación de viajes -->
+  <ion-button (click)="irACrearViaje()" expand="full">Crear Nuevo Viaje</ion-button>
+</ion-content>

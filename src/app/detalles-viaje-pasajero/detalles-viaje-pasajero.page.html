@@ -1,4 +1,4 @@
-<!-- detalles-viaje.page.html -->
+<!-- detalles-viaje-pasajero.page.html -->
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
@@ -7,23 +7,22 @@
     </ion-toolbar>
   </ion-header>
   <div class="detalles-container" *ngIf="viaje">
+    <!-- Mostrar detalles del viaje -->
     <p>Conductor: {{ viaje.conductor.username }}</p>
     <p>Origen: {{ viaje.origen }}</p>
     <p>Destino: {{ viaje.destino }}</p>
     <p>Precio: ${{ viaje.precio }}</p>
     <p>Asientos Disponibles: {{ viaje.asientosDisponibles }}</p>
 
-    <ion-list *ngIf="viaje.pasajeros && viaje.pasajeros.length > 0" style="--ion-background-color: rgba(7, 37, 94, 0.5);">
-      <ion-item *ngFor="let pasajero of viaje.pasajeros" style="--ion-background-color: transparent;">
+    <!-- Mostrar información de los pasajeros -->
+    <ion-list *ngIf="viaje.pasajeros && viaje.pasajeros.length > 0">
+      <ion-item *ngFor="let pasajero of viaje.pasajeros">
         <p>Pasajero: {{ pasajero.username }}</p>
       </ion-item>
     </ion-list>
-
+    
+    <!-- Mostrar mensaje si no hay pasajeros -->
     <p class="no-pasajeros" *ngIf="!viaje.pasajeros || viaje.pasajeros.length === 0">No hay pasajeros.</p>
-
-    <!-- Botones para comenzar y finalizar viaje -->
-    <ion-button (click)="comenzarViaje()" expand="full" color="light">Comenzar Viaje</ion-button>
-    <ion-button  (click)="finalizarViaje()" expand="full" >Finalizar Viaje</ion-button>
 
     <!-- Mostrar mensaje de viaje en curso -->
     <p *ngIf="viajeIniciado">Viaje en curso</p>

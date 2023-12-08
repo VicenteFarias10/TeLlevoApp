@@ -1,0 +1,48 @@
+/* detalles-viaje.page.scss */
+ion-title {
+    color: #fff; /* Establece el color del título como blanco */
+  }
+  
+  ion-list, ion-item, ion-item-group {
+    --background: rgba(var(--ion-color-dark-rgb), 0.5); 
+  }
+  
+  ion-toolbar {
+    --background: transparent; /* Hace que el fondo del toolbar sea transparente */
+  }
+  
+  .detalles-container {
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgb(125, 162, 243); 
+  }
+  
+  p {
+    font-size: 16px;
+    margin: 5px 0;
+    color: #fff; /* Color de texto principal */
+  }
+  
+  ion-list {
+    margin-top: 20px;
+  }
+  
+  /* Estilo para el caso de no haber pasajeros */
+  .no-pasajeros {
+    font-style: italic;
+    color: #f1f1f1; /* Color de texto más claro para información secundaria */
+  }
+  
+  
+  
+  /* Nuevas reglas para elementos internos de ion-item */
+  ion-item-inner, .input-wrapper, .item-inner {
+    --background: transparent !important;
+  }
+  
+  /* Estilo específico para el contenido del pasajero */
+  ion-item p {
+    color: #fff; /* Asegúrate de que el texto del pasajero sea blanco */
+  }
+  

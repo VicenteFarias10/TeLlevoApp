@@ -1,15 +1,10 @@
 <!-- welcome.page.html -->
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">¡Bienvenido, {{ username }}!</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
   <div class="welcome-container">
-    <img src="assets/user.png" alt="Usuario Prototipo" class="user-image" />
+    <img src="assets/user1.jpg" alt="Usuario Prototipo" class="user-image" />
     <p class="welcome-message">¡Hola, {{ username }}!</p>
-    <p>Tu rol: {{ role }}</p>
+    <p> {{ role }}</p>
   </div>
 
   <ion-list>
@@ -27,7 +22,7 @@
         <ion-label class="viaje-label">{{ viaje.asientosDisponibles }}</ion-label>
       </div>
        <!-- Agrega un botón para mostrar detalles del viaje, puedes personalizar esto según tus necesidades -->
-       <ion-button (click)="solicitarViaje(viaje)">Solicitar Viaje</ion-button>
+       <ion-button (click)="solicitarViaje(viaje)">Viajar</ion-button>
       <!-- Agrega un botón para mostrar detalles del viaje, puedes personalizar esto según tus necesidades -->
     </ion-item>
   </ion-list>

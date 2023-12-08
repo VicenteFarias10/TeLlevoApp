@@ -1,31 +1,31 @@
-<ion-content class="ion-text-center ion-padding-vertical custom-bg"> <!-- Centramos el contenido con margen superior e inferior y aplicamos el fondo personalizado -->
-  <!-- Título con clase personalizada de estilo -->
-  <h1 class="custom-title">Bienvenido a TeLlevoapp</h1>
-  <!-- Párrafo con clase personalizada de estilo -->
-  <p class="custom-paragraph">Ingresa tus datos para iniciar sesión</p>
+<ion-content class="ion-text-center ion-padding-vertical custom-bg">
+  <div class="container ion-text-left"> <!-- Agregamos la clase ion-text-left para alinear la imagen a la izquierda -->
+    <img src="assets/icon.png" class="app-icon">
+    <p class="custom-paragraph">Bienvenido a TeLlevoapp</p>
+  </div>
 
   <div class="login-form">
+    <p class="custom-paragraph">Inicio De Sesion</p>
     
-      <ion-item class="rounded-input">
-        <ion-icon class="customicon" name="person" slot="start"></ion-icon> <!-- Icono de usuario -->
-        <ion-input [(ngModel)]="username" type="text" placeholder="Nombre de Usuario"></ion-input>
-      </ion-item>
-      <ion-item class="rounded-input">
-        <ion-icon class="customicon" name="lock-closed" slot="start"></ion-icon> <!-- Icono de candado para contraseña -->
-        <ion-input [(ngModel)]="password" type="password" placeholder="Contraseña"></ion-input>
-      </ion-item>
-      <ion-item class="rounded-input">
-        <ion-toggle [enableOnOffLabels]="true">Recordar</ion-toggle>
-      </ion-item>
-
-   
+    <ion-item class="rounded-input">
+      <ion-icon class="customicon" name="person" slot="start"></ion-icon>
+      <ion-input [(ngModel)]="username" type="text" placeholder="Nombre de Usuario"></ion-input>
+    </ion-item>
     
-  
-    <!-- Botón de inicio de sesión con spinner -->
+    <ion-item class="rounded-input">
+      <ion-icon class="customicon" name="lock-closed" slot="start"></ion-icon>
+      <ion-input [(ngModel)]="password" type="password" placeholder="Contraseña"></ion-input>
+    </ion-item>
+    
+    <ion-item class="rounded-input">
+      <ion-toggle [enableOnOffLabels]="true">Recordar</ion-toggle>
+    </ion-item>
+    
     <ion-button shape="round" (click)="login()" [disabled]="isLoading" class="ion-margin-top custom-button">
       {{ isLoading ? 'Iniciando Sesión...' : 'Iniciar Sesión' }}
       <ion-spinner name="circular" *ngIf="isLoading"></ion-spinner>
     </ion-button>
+    
     <ion-button fill="clear" (click)="navigateToRecuperar()" color="tertiary" class="custom-button">Recuperar Contraseña</ion-button>
   </div>
 </ion-content>

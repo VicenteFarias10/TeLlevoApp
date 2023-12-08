@@ -52,7 +52,7 @@ export class WelcomePage implements OnInit {
           this.toastr.success('Solicitud de viaje exitosa');
   
           // Navega a la nueva página de detalles-viaje-p con el ID del nuevo viaje
-          this.router.navigate(['/detalles-viaje', nuevoViaje._id]);
+          this.router.navigate(['/detalles-viaje-pasajero', nuevoViaje._id]);
   
         } else {
           console.error('Error: No se recibió un ID de viaje válido en la respuesta del servidor.');

@@ -1,22 +1,49 @@
 /* welcome-cond.page.scss */
 
 ion-content {
-    background-color: #f0f0f0; /* Color de fondo */
+  background-color: #f0f0f0; /* Color de fondo */
+}
+
+.welcome-container {
+  text-align: center;
+  padding: 20px;
+
+  .user-image {
+    max-width: 100px;
+    border-radius: 50%; /* Bordes redondeados para la imagen */
   }
-  
-  .welcome-container {
-    text-align: center;
-    padding: 20px;
-  
-    .user-image {
-      max-width: 100px;
-      border-radius: 50%; /* Bordes redondeados para la imagen */
-    }
-  
-    .welcome-message {
-      font-size: 18px;
-      font-weight: bold;
-      margin-top: 10px;
-    }
+
+  .welcome-message {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
   }
-  
+}
+
+/* Nuevos estilos para el formulario */
+.form-container {
+  background-color: transparent; /* Fondo blanco semi-transparente */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 20px;
+  margin-top: 20px; /* Espacio superior entre el contenedor y otros elementos */
+  text-align: center;
+  box-shadow: 0 8px 16px rgb(125, 162, 243); 
+
+
+
+  ion-button {
+    margin-top: 10px; /* Espacio entre botones */
+  }
+}
+.form-container {
+  // ... otros estilos
+
+  ion-item {
+    
+    --background: transparent;
+    box-shadow: 0 8px 16px rgb(3, 25, 68); 
+  }
+}
+
+
+

@@ -1,0 +1,65 @@
+
+ion-header {
+    background-color: transparent; /* Color de fondo del encabezado */
+  }
+  
+  ion-toolbar {
+    --ion-color-base: #fff; /* Cambia el color del texto en el encabezado */
+  }
+  
+  ion-content {
+    background-color: transparent; /* Color de fondo general de la página */
+  }
+  ion-list {
+    background-color: transparent; /* Fondo blanco semi-transparente */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 10px;
+    margin-top: 10px; /* Espacio superior entre el contenedor y otros elementos */
+    text-align: center;
+    box-shadow: 0 8px 16px rgb(125, 162, 243); 
+  
+  }
+  p {
+    font-size: 16px;
+    margin: 5px 0;
+    color: #fff; /* Color de texto principal */
+  }
+  ion-item {
+    --background: transparent !important;
+  }
+  
+  
+  .viaje-item {
+    text-align: justify;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 25x;
+    box-shadow: 0 2px 4px rgb(125, 162, 243); 
+    color: #fff;
+    width: 96%;
+    background-color: transparent !important;
+  }
+  
+  .viaje-label {
+    text-align:justify;
+    margin-right: 10px;
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  ion-button {
+    
+    margin-top: 20px;
+    color: #f4f4f4; /* Color del texto del botón */
+    border-radius: 20px;
+    background-color: #cedceb; /* Color de fondo del botón */
+    color: #000; /* Color del texto del botón */
+  }
+  ion-list, ion-item, ion-item-group {
+    --background: rgba(var(--ion-color-dark-rgb), 0.5); 
+  }
+  
+  ion-toolbar {
+    --background: transparent; /* Hace que el fondo del toolbar sea transparente */
+  }
