@@ -30,7 +30,7 @@ const routes: Routes = [
     loadChildren: () => import('./welcome-cond/welcome-cond.module').then( m => m.WelcomeCondPageModule)
   },
   {
-    path: 'detalles-viaje/:id',  // Agregando ':id' como parámetro
+    path: 'detalles-viaje/:id',  
     loadChildren: () => import('./detalles-viaje/detalles-viaje.module').then(m => m.DetallesViajePageModule)
   },
   {

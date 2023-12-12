@@ -1,4 +1,4 @@
-// Importa solo lo necesario, elimina cualquier importación innecesaria
+
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/api.service';
 import { ToastrService } from 'ngx-toastr';
@@ -13,6 +13,14 @@ export class WelcomePage implements OnInit {
   username: string = '';
   role: string = '';
   viajesDisponibles: any[] = [];
+  doRefresh(event : any) {
+   
+    setTimeout(() => {
+      this.obtenerViajesDisponibles(); 
+      event.target.complete(); 
+    }, 2000); 
+  }
+  
 
   constructor( private router: Router,private authService: AuthService, private toastr: ToastrService) {}
 
@@ -42,7 +50,7 @@ export class WelcomePage implements OnInit {
   
     const solicitudViajeData = { viajeId, username: this.username };
   
-    // Asegúrate de pasar ambos argumentos a solicitarViaje
+    
     this.authService.solicitarViaje(viajeId, this.username).subscribe(
       (response: any) => {
         console.log('Respuesta del servidor:', response);
@@ -66,5 +74,3 @@ export class WelcomePage implements OnInit {
     );
   }
 };
-  
-

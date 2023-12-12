@@ -6,6 +6,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { Subject } from 'rxjs';
 import { Subscription } from 'rxjs';
+import { AlertController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class AuthService {
   private viajeIniciadoSubject = new Subject<boolean>();
   viajeIniciado$ = this.viajeIniciadoSubject.asObservable();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient ,private alertController: AlertController) {}
 
   private addTokenToHeaders(): HttpHeaders {
     const token = localStorage.getItem('secreto');
@@ -139,4 +140,14 @@ export class AuthService {
         })
       );
   }
+  async mostrarAlerta(mensaje: string) {
+    const alert = await this.alertController.create({
+      header: 'Aviso',
+      message: mensaje,
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
 }
+

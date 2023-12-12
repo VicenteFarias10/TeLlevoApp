@@ -39,7 +39,7 @@ export class WelcomeCondPage implements OnInit {
   }
 
   CrearViaje() {
-    // Antes de hacer la solicitud, imprime la información relevante
+    
     console.log('Viaje Data:', this.viajeData);
   
     this.authService.crearViaje(this.viajeData).subscribe(
@@ -62,7 +62,7 @@ export class WelcomeCondPage implements OnInit {
     );
   }
   verMisViajes() {
-    // Redirigir a la página de viajes
+   
     this.router.navigate(['/viajes']);
   }
   async openHourPicker() {

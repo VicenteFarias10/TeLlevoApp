@@ -32,8 +32,17 @@ export class ViajesPage implements OnInit {
     this.router.navigate(['/detalles-viaje', viaje._id]);
   }
 
-  // Método para redirigir a la página de creación de viajes
+
   irACrearViaje() {
     this.router.navigate(['/welcome-cond']);
   }
+
+  doRefresh(event : any) {
+  
+    setTimeout(() => {
+      this.cargarViajes(); 
+      event.target.complete(); 
+    }, 2000); 
+  }
 }
+

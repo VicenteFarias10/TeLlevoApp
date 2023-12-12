@@ -15,6 +15,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { ToastrModule } from 'ngx-toastr';
 import { AuthService } from './services/api.service'; 
 import { ToastrService } from 'ngx-toastr'; 
+import { SocketIoModule } from 'ngx-socket-io';
+
 
 
 
@@ -31,6 +33,7 @@ import { ToastrService } from 'ngx-toastr';
     FormsModule,
     MatSlideToggleModule,
     MatSidenavModule,
+    SocketIoModule.forRoot({ url: 'https://xr40pckj-3000.brs.devtunnels.ms' }),
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

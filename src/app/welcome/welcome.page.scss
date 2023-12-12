@@ -1,7 +1,6 @@
-/* welcome.page.scss */
 
 ion-content {
-  background-color: #f0f0f0; /* Color de fondo general de la página */
+  background-color: transparent; 
 }
 
 .welcome-container {
@@ -10,7 +9,7 @@ ion-content {
 
   .user-image {
     max-width: 100px;
-    border-radius: 50%; /* Bordes redondeados para la imagen */
+    border-radius: 50%; 
   }
 
   .welcome-message {
@@ -21,14 +20,13 @@ ion-content {
 
   .viaje-list {
     background-color: transparent;
-     /* Sombra ligera */ /* Fondo transparente para la lista de viajes */
+  
   }
 }
 ion-list {
-  background-color: transparent; /* Fondo blanco semi-transparente */
-  border-radius: 10px; /* Bordes redondeados */
-  padding: 10px;
-  margin-top: 10px; /* Espacio superior entre el contenedor y otros elementos */
+  background-color: transparent; 
+  border-radius: 10px; 
+  margin-top: 10px; 
   text-align: center;
   box-shadow: 0 8px 16px rgb(125, 162, 243); 
 
@@ -36,7 +34,7 @@ ion-list {
 p {
   font-size: 16px;
   margin: 5px 0;
-  color: #fff; /* Color de texto principal */
+  color: #fff; 
 }
 ion-item {
   --background: transparent !important;
@@ -66,9 +64,9 @@ ion-item {
 
 ion-button {
   position: absolute;
-  top: 10px; /* Ajusta la distancia desde la parte superior según tus necesidades */
-  right: 10px; /* Ajusta la distancia desde la derecha según tus necesidades */
+  top: 10px; 
+  right: 10px;
   width: 45px;
-  background-color: transparent; /* Color de fondo del botón Solicitar Viaje */
+  background-color: transparent; 
   color: #000; 
 }

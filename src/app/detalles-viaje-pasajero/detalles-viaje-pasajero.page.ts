@@ -3,6 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../services/api.service';
 import { ToastController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
+import { Socket } from 'ngx-socket-io'; 
+import { AlertController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-detalles-viaje-pasajero',
@@ -18,13 +21,31 @@ export class DetallesViajePasajeroPage implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private authService: AuthService,
     private router: Router,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private socket: Socket,
+    private alertController: AlertController,  
   ) {}
 
   ngOnInit() {
+    this.socket.on('viajeFinalizado', (data: any) => {
+      // Realiza cualquier lógica necesaria
+      console.log('Evento viajeFinalizado recibido:', data);
+    
+      
+      this.router.navigate(['/welcome']);
+    });
+    
     this.route.params.subscribe((params) => {
       const viajeId = params['id'];
       this.obtenerDetallesViaje(viajeId);
+
+      
+      this.socket.on('viajeIniciado', (data: any) => {
+        
+        this.viajeIniciado = true;
+        console.log('Evento viajeIniciado recibido:', data);
+      });
+
       this.viajeIniciadoSubscription = this.authService
         .viajeIniciado$
         .subscribe((iniciado: boolean) => {
@@ -34,6 +55,9 @@ export class DetallesViajePasajeroPage implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    
+    this.socket.disconnect();
+
     if (this.viajeIniciadoSubscription) {
       this.viajeIniciadoSubscription.unsubscribe();
     }
@@ -49,27 +73,5 @@ export class DetallesViajePasajeroPage implements OnInit, OnDestroy {
         console.error('Error al obtener detalles del viaje:', error);
       }
     );
-  }
-
-  finalizarViaje() {
-    this.authService.finalizarViaje(this.viaje.id).subscribe(
-      () => {
-        this.router.navigate(['/welcome']);
-        this.presentToast('Su viaje ha finalizado.');
-      },
-      (error) => {
-        console.error('Error al finalizar el viaje:', error);
-      }
-    );
-  }
-
-  async presentToast(message: string) {
-    const toast = await this.toastController.create({
-      message: message,
-      duration: 3000,
-      position: 'bottom',
-      color: 'success',
-    });
-    toast.present();
   }
 }

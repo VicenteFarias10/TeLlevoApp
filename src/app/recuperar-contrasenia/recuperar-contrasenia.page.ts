@@ -14,10 +14,10 @@ export class RecuperarContraseniaPage{
 
   back() {
 
-    // Simula una carga de 2 segundos
+    
     setTimeout(() => {
-      // Implementa aquí la lógica de inicio de sesión
-      // Luego, cuando haya terminado la carga, redirige a la página de bienvenida
+      
+     
       this.router.navigate(['/iniciar-sesion'] );
 
     }, 1400);

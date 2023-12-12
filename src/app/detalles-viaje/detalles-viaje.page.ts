@@ -2,6 +2,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../services/api.service';
 import { Subscription } from 'rxjs';
+import { Socket } from 'ngx-socket-io';  
+import { AlertController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-detalles-viaje',
@@ -12,17 +15,28 @@ export class DetallesViajePage implements OnInit, OnDestroy {
   viaje: any;
   viajeIniciado: boolean = false;
   viajeIniciadoSubscription: Subscription = new Subscription();
+  
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private authService: AuthService
+    private authService: AuthService,
+    private socket: Socket,
+    private alertController: AlertController,
   ) {}
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
       const viajeId = params['id'];
       this.obtenerDetallesViaje(viajeId);
+
+      
+      this.socket.on('viajeIniciado', (data: any) => {
+        
+        this.viajeIniciado = true;
+        console.log('Evento viajeIniciado recibido:', data);
+      });
+
       this.viajeIniciadoSubscription = this.authService
         .obtenerViajeIniciado()
         .subscribe((iniciado: boolean) => {
@@ -32,6 +46,9 @@ export class DetallesViajePage implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+   
+    this.socket.disconnect();
+
     if (this.viajeIniciadoSubscription) {
       this.viajeIniciadoSubscription.unsubscribe();
     }
@@ -55,6 +72,9 @@ export class DetallesViajePage implements OnInit, OnDestroy {
         (response: any) => {
           if (response && response.mensaje) {
             console.log(response.mensaje);
+
+            
+            this.socket.emit('iniciarViaje', { viajeId: this.viaje._id });
           } else {
             console.error(
               'La respuesta no contiene la propiedad "mensaje":',
@@ -82,4 +102,12 @@ export class DetallesViajePage implements OnInit, OnDestroy {
       }
     );
   }
+  doRefresh(event : any) {
+   
+    setTimeout(() => {
+      this.obtenerDetallesViaje(this.viaje._id); 
+      event.target.complete(); 
+    }, 2000); 
+  }
 }
+

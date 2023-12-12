@@ -1,8 +1,15 @@
 <!-- detalles-viaje.page.html -->
 
 <ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed"  (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Tire para refrescar" refreshingText="Actualizando...">
+    </ion-refresher-content>
+  </ion-refresher>
   <ion-header collapse="condense">
     <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/viajes"></ion-back-button>
+      </ion-buttons>
       <ion-title>Detalles del Viaje</ion-title>
     </ion-toolbar>
   </ion-header>
@@ -12,6 +19,9 @@
     <p>Destino: {{ viaje.destino }}</p>
     <p>Precio: ${{ viaje.precio }}</p>
     <p>Asientos Disponibles: {{ viaje.asientosDisponibles }}</p>
+    <p>Dia: {{ viaje.diaInicio}}</p>
+    <p>Hora: {{ viaje.horaInicio }}</p>
+    
 
     <ion-list *ngIf="viaje.pasajeros && viaje.pasajeros.length > 0" style="--ion-background-color: rgba(7, 37, 94, 0.5);">
       <ion-item *ngFor="let pasajero of viaje.pasajeros" style="--ion-background-color: transparent;">
@@ -29,3 +39,4 @@
     <p *ngIf="viajeIniciado">Viaje en curso</p>
   </div>
 </ion-content>
+

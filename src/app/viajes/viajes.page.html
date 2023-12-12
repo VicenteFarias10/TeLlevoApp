@@ -1,4 +1,8 @@
 <ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed"  (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Tire para refrescar" refreshingText="Actualizando...">
+    </ion-refresher-content>
+  </ion-refresher>
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title>Mis Viajes</ion-title>
@@ -20,7 +24,5 @@
       </div>
     </ion-item>
   </ion-list>
-
-  <!-- Agrega el botón para ir a la página de creación de viajes -->
   <ion-button (click)="irACrearViaje()" expand="full">Crear Nuevo Viaje</ion-button>
 </ion-content>

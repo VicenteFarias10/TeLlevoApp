@@ -4,7 +4,7 @@
   <div class="welcome-container">
     <img src="assets/user1.jpg" alt="Usuario Prototipo" class="user-image" />
     <p class="welcome-message">¡Hola, {{ username }}!</p>
-    <p> {{ role }}</p>
+    <p>{{ role }}</p>
   </div>
 
   <ion-list>
@@ -14,16 +14,25 @@
         <ion-label class="viaje-label">Destino:</ion-label>
         <ion-label class="viaje-label">Precio:</ion-label>
         <ion-label class="viaje-label">Asientos:</ion-label>
+        <ion-label class="viaje-label">Dia:</ion-label>
+        <ion-label class="viaje-label">Hora:</ion-label>
+        
       </div>
       <div class="viaje-values">
         <ion-label class="viaje-label">{{ viaje.origen }}</ion-label>
         <ion-label class="viaje-label">{{ viaje.destino }}</ion-label>
         <ion-label class="viaje-label">${{ viaje.precio }}</ion-label>
         <ion-label class="viaje-label">{{ viaje.asientosDisponibles }}</ion-label>
+        <ion-label class="viaje-label">{{ viaje.diaInicio }}</ion-label>
+        <ion-label class="viaje-label">{{ viaje.horaInicio }}</ion-label>
+
       </div>
-       <!-- Agrega un botón para mostrar detalles del viaje, puedes personalizar esto según tus necesidades -->
-       <ion-button (click)="solicitarViaje(viaje)">Viajar</ion-button>
-      <!-- Agrega un botón para mostrar detalles del viaje, puedes personalizar esto según tus necesidades -->
+      <ion-button (click)="solicitarViaje(viaje)">Viajar</ion-button>
     </ion-item>
+    
   </ion-list>
+  <ion-refresher slot="fixed"  (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Tire para refrescar" refreshingText="Actualizando...">
+    </ion-refresher-content>
+  </ion-refresher>
 </ion-content>

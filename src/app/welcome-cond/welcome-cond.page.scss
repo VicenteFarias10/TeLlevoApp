@@ -1,7 +1,6 @@
-/* welcome-cond.page.scss */
 
 ion-content {
-  background-color: #f0f0f0; /* Color de fondo */
+  background-color: #f0f0f0;
 }
 
 .welcome-container {
@@ -10,7 +9,7 @@ ion-content {
 
   .user-image {
     max-width: 100px;
-    border-radius: 50%; /* Bordes redondeados para la imagen */
+    border-radius: 50%; 
   }
 
   .welcome-message {
@@ -20,23 +19,23 @@ ion-content {
   }
 }
 
-/* Nuevos estilos para el formulario */
+
 .form-container {
-  background-color: transparent; /* Fondo blanco semi-transparente */
-  border-radius: 10px; /* Bordes redondeados */
+  background-color: transparent; 
+  border-radius: 10px; 
   padding: 20px;
-  margin-top: 20px; /* Espacio superior entre el contenedor y otros elementos */
+  margin-top: 20px; 
   text-align: center;
   box-shadow: 0 8px 16px rgb(125, 162, 243); 
 
 
 
   ion-button {
-    margin-top: 10px; /* Espacio entre botones */
+    margin-top: 10px; 
   }
 }
 .form-container {
-  // ... otros estilos
+
 
   ion-item {
     

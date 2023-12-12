@@ -12,7 +12,7 @@ export class HomePage {
   ionViewDidEnter() {
     setTimeout(() => {
       this.navigateToLogin();
-    }, 5000); // Redirigir automáticamente después de 5 segundos (ajusta este valor a tu preferencia)
+    }, 5000); 
   }
 
   navigateToLogin() {
